@@ -55,7 +55,7 @@ function searchHistory(city) {
 }
 
 function getWeather(city) {
-    
+
     var apiCoordinatesUrl = openWeatherCoordinatesUrl + city + '&appid=' + openWeatherApiKey;
     fetch(apiCoordinatesUrl)
         .then(function (coordinateResponse) {
@@ -200,3 +200,33 @@ function getWeather(city) {
             alert('Unable to connect to Open Weather');
         });
 }
+
+function submitCitySearch(event) {
+    event.preventDefault();
+
+    var city = titleCase(cityInputEl.val().trim());
+
+    if (searchHistoryArray.searchedCity.includes(city)) {
+        alert(city + ' is included in history below. Click the ' + city + ' button to get weather.');
+        cityInputEl.val('');
+    } else if (city) {
+        getWeather(city);
+        searchHistory(city);
+        searchHistoryArray.searchedCity.push(city);
+        saveSearchHistory();
+    
+        cityInputEl.val('');
+    
+    } else {
+        alert('Please enter a city');
+    }
+}
+
+
+userFormEL.on('submit', submitCitySearch);
+
+$('#search-btn').on('click', function () {
+    $('#current-weather').remove();
+    $('#five-day').empty();
+    $('#five-day-header').remove();
+})
