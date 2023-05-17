@@ -24,6 +24,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Deployment 
 https://pattersonhn.github.io/Weather-Dashboard/
+
 ![1A238874-6AD5-40AB-A3A4-AE77AD429E24](https://github.com/pattersonhn/Weather-Dashboard/assets/117123654/e292b58c-fee2-4e83-b855-1e6303da9316)
 
 ## Contributors
